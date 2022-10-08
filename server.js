@@ -10,7 +10,7 @@ app.all('*', function (req, res, next) {
   // 跨域允许的请求方式
   res.header('Access-Control-Allow-Methods', 'DELETE,PUT,POST,GET,OPTIONS')
   if (req.method.toLowerCase() == 'options')
-    res.send(200) // 让options 尝试请求快速结束
+    res.sendStatus(200) // 让options 尝试请求快速结束
   else next()
 })
 
@@ -35,8 +35,30 @@ app.get('/test', (request, response) => {
   const res = {
     code: 10000,
     msg: 'Test',
+    data: null
+  }
+  response.send(res)
+})
+
+app.post('/register', (request, response) => {
+  console.log(request.body.username)
+  console.log(request.body.password)
+  const res = {
+    code: 10000,
+    msg: '注册成功',
+    data: null
+  }
+  response.send(res)
+})
+
+app.post('/login', (request, response) => {
+  console.log(request.body.username)
+  console.log(request.body.password)
+  const res = {
+    code: 10000,
+    msg: '登录成功',
     data: {
-      token: '12i3j1293j1'
+      token: 'abc123'
     }
   }
   response.send(res)
