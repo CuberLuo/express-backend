@@ -40,26 +40,24 @@ app.get('/test', (request, response) => {
   response.send(res)
 })
 
-app.post('/register', (request, response) => {
+app.post('/user/register', (request, response) => {
   console.log(request.body.username)
   console.log(request.body.password)
   const res = {
-    code: 10000,
+    code: 0,
     msg: '注册成功',
     data: null
   }
   response.send(res)
 })
 
-app.post('/login', (request, response) => {
+app.post('/user/login', (request, response) => {
   console.log(request.body.username)
   console.log(request.body.password)
   const res = {
-    code: 10000,
+    code: 0,
     msg: '登录成功',
-    data: {
-      token: 'abc123'
-    }
+    data: null
   }
   response.send(res)
 })
